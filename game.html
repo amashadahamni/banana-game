@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <a href="logout.php" class="logout">Logout</a>
+    <h2 id="game-title">Math Game</h2>
+
+    <div id="status">
+        Level: <span id="level">1</span> | Marks: <span id="score">0</span> | Time left: <span id="timer">10</span>s
+    </div>
+
+    <div id="question">Loading question...</div>
+
+    <input type="number" id="answer" placeholder="Enter your answer">
+    <button id="submit">Submit Answer</button>
+    <button id="next">Next Question</button>
+
+    <p id="result"></p>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h2>Create Account</h2>
+
+<form action="register.php" method="POST" onsubmit="return validatePassword()">
+
+<input type="text" name="username" placeholder="Username" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="password" id="password" name="password" placeholder="Password" required>
+
+<p class="password-rules">
+Password must contain:
+<br>
+Must contain at least 1 capital letter
+<br>
+Must contain at least 2 numbers
+<br>
+Must contain at least 1 symbol (e.g. !@#$%^&*)
+<br>
+The password must contain at least 10 characters in total.
+</p>
+
+<button type="submit">Register</button>
+
+</form>
+<br>
+<div class="google-btn">
+<a href="https://accounts.google.com/signin" target="_blank">
+Register with Google
+</a>
+</div>
+
+<br>
+
+<p>Already have an account?</p>
+
+<a href="login.html">Login here</a>
+
+</div>
+
+</body>
+</html>
