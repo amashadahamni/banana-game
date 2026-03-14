@@ -4,16 +4,15 @@ let level = 1;
 let questionIndex = 0;
 const questionsPerLevel = 10;
 const maxLevel = 100;
-let timerDuration = 10; // seconds
+let timerDuration = 10;
 let timer;
-let currentGame = "banana";
 
-// Get the game from URL parameter
 const params = new URLSearchParams(window.location.search);
-if(params.has("game")) {
-    currentGame = params.get("game");
-}
+const currentGame = params.get('game') || 'banana';
+const character = params.get('character') || 'monco';
+
 document.getElementById("game-title").innerText = currentGame === "banana" ? "Banana Math Game" : "Tomato Math Game";
+document.getElementById("character-name").innerText = character.charAt(0).toUpperCase() + character.slice(1);
 
 function startTimer() {
     let timeLeft = timerDuration;
@@ -25,7 +24,7 @@ function startTimer() {
         if(timeLeft <= 0){
             clearInterval(timer);
             document.getElementById("result").innerText = `Time's up! Correct answer was: ${correctAnswer}`;
-            nextQuestion();
+            setTimeout(nextQuestion, 1000);
         }
     }, 1000);
 }
@@ -76,14 +75,12 @@ document.getElementById("submit").addEventListener("click", function(){
         document.getElementById("result").innerText = `Wrong! Correct answer was: ${correctAnswer}`;
     }
 
-    // Save score (optional, PHP)
     fetch("score.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "score=" + score
+        body: "score=" + score + "&level=" + level
     });
 
-    // Move to next question after short delay
     setTimeout(nextQuestion, 1000);
 });
 
