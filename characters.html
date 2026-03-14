@@ -4,36 +4,46 @@
 <title>Choose Your Character</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="character-container">
-
 <h1>Choose Your Character</h1>
 
 <div class="characters">
-
-<div class="character">
-<img src="https://cdn-icons-png.flaticon.com/512/616/616582.png">
-<h3>Monco</h3>
-<a href="game.html">Select</a>
+    <div class="character">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616582.png" alt="Monco">
+        <h3>Monco</h3>
+        <a id="monco" href="#">Select</a>
+    </div>
+    <div class="character">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Elepa">
+        <h3>Elepa</h3>
+        <a id="elepa" href="#">Select</a>
+    </div>
+    <div class="character">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" alt="Squill">
+        <h3>Squill</h3>
+        <a id="squill" href="#">Select</a>
+    </div>
+</div>
 </div>
 
-<div class="character">
-<img src="https://cdn-icons-png.flaticon.com/512/616/616408.png">
-<h3>Elepa</h3>
-<a href="game.html">Select</a>
-</div>
+<script>
+// Get the selected game from URL
+const params = new URLSearchParams(window.location.search);
+const game = params.get('game') || 'banana'; // default to banana
 
-<div class="character">
-<img src="https://cdn-icons-png.flaticon.com/512/616/616430.png">
-<h3>Squill</h3>
-<a href="game.html">Select</a>
-</div>
-
-</div>
-
-</div>
+// Add click listeners for each character
+document.getElementById("monco").addEventListener("click", () => {
+    window.location.href = `game.html?game=${game}&character=monco`;
+});
+document.getElementById("elepa").addEventListener("click", () => {
+    window.location.href = `game.html?game=${game}&character=elepa`;
+});
+document.getElementById("squill").addEventListener("click", () => {
+    window.location.href = `game.html?game=${game}&character=squill`;
+});
+</script>
 
 </body>
 </html>
